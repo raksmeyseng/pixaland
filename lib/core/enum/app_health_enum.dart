@@ -1,0 +1,1 @@
+enum AppHealthEnum { healthy, underMaintenance }
