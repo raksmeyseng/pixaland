@@ -54,15 +54,13 @@ class AppBloc extends Bloc<AppEvent, AppState> {
       final theme = await appRepo.getThemeAsync();
       final lang = await appRepo.loadLangAsync();
       final themeOptions = await appRepo.getThemeOptions();
-      final devEnabled = await appRepo.getDeveloperOptionEnabled();
       emit(state.copyWith(
         theme: theme,
         language: lang,
         themeOptions: themeOptions,
-        devOptionEnabled: devEnabled,
       ));
       // Add some delay to wait for auth state finishing updated
-      await Future.delayed(const Duration(milliseconds: 300));
+      await Future.delayed(const Duration(milliseconds: 500));
       emit(state.copyWith(status: BaseStatusEnum.success));
     } catch (e) {
       // ==================

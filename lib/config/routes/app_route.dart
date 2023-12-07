@@ -10,6 +10,7 @@ class AppRoute {
 
   // General
   static const String homefeed = 'homefeed';
+  static const String imageDetails = 'image-details';
 
   static final List<RouteBase> configs = [
     GoRoute(
@@ -32,6 +33,13 @@ class AppRoute {
       name: homefeed,
       path: '/homefeed',
       pageBuilder: homeFeedBuilder,
+      routes: [
+        GoRoute(
+          name: imageDetails,
+          path: ':id/details',
+          pageBuilder: imageDetailsBuilder,
+        ),
+      ],
     ),
   ];
 }

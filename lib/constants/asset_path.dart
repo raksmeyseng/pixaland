@@ -10,5 +10,5 @@ class AssetPath {
 
   // PNG Icons
   static const String iconNoImage = 'assets/icons/no_image.png';
-  static const String iconError = "assets/images/error.png";
+  static const String iconError = "assets/icons/error.png";
 }

@@ -26,6 +26,8 @@ class ImageModel {
   @JsonKey(name: "download_url")
   final String downloadUrl;
 
+  static const empty = ImageModel(id: '', downloadUrl: '');
+
   factory ImageModel.fromJson(Map<String, dynamic> json) =>
       _$ImageModelFromJson(json);
 

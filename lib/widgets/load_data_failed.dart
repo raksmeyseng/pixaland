@@ -13,7 +13,7 @@ class LoadDataFailed extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Align(
-        alignment: Alignment.topCenter,
+        alignment: Alignment.center,
         child: Padding(
           padding: const EdgeInsets.all(24.0),
           child: Column(

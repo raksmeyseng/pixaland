@@ -1,16 +1,14 @@
 import 'dart:io';
-
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:pixaland/config/routes/application.dart';
 import 'package:pixaland/config/themes/app_color.dart';
 import 'package:pixaland/core/enum/internet_status_enum.dart';
 import 'package:pixaland/core/enum/language_enum.dart';
 import 'package:pixaland/translation/generated/l10n.dart';
+import 'package:pixaland/utils/common_utils.dart';
 import 'package:pixaland/utils/helper/dialog_helper.dart';
 import 'package:pixaland/utils/helper/loading_helper.dart';
 import 'package:pixaland/utils/helper/network_helper.dart';
-import 'package:pixaland/widgets/dialogs/alert_message_dialog.dart';
 import 'package:pixaland/widgets/dialogs/error_message_dialog.dart';
 
 class RestApiService {
@@ -31,12 +29,11 @@ class RestApiService {
             return handler.reject(error, true);
           }
           final appBloc = Application.appBloc;
-
           options.baseUrl = _normalizeBaseUrl(_baseUrl);
           options.path = _normalizePath(options.path);
           options.headers['Lang'] =
               appBloc.state.language.getLocale().languageCode;
-          return handler.next(options); //continue
+          return handler.next(options);
         },
         onError: (DioError e, handler) async {
           // Clear loading
@@ -55,20 +52,26 @@ class RestApiService {
             );
           } else if (e.error == InternetStatusEnum.offline) {
             if (!_errorDialogShowed) {
-              _errorDialogShowed = true;
-              DialogHelper.showAnimatedDialog(
-                pageBuilder: (context, _, __) {
-                  return AlertMessageDialog(
-                    icon: const Icon(
-                      Icons.wifi_off_outlined,
-                      size: 70,
-                      color: AppColor.white,
-                    ),
-                    title: S.of(context).title_no_internet_access,
-                    message: S.of(context).msg_check_your_internet_connection,
-                  );
-                },
-              ).then((value) => _errorDialogShowed = false);
+              showSnackBar(
+                Application.context!,
+                S.of(Application.context!).msg_check_your_internet_connection,
+                color: AppColor.success,
+                permanant: !_errorDialogShowed,
+              );
+              // _errorDialogShowed = true;
+              // DialogHelper.showAnimatedDialog(
+              //   pageBuilder: (context, _, __) {
+              //     return AlertMessageDialog(
+              //       icon: const Icon(
+              //         Icons.wifi_off_outlined,
+              //         size: 70,
+              //         color: AppColor.white,
+              //       ),
+              //       title: S.of(context).title_no_internet_access,
+              //       message: S.of(context).msg_check_your_internet_connection,
+              //     );
+              //   },
+              // ).then((value) => _errorDialogShowed = false);
             }
           }
           return handler.next(e);

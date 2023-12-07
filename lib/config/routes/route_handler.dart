@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pixaland/core/modules/homefeed/view/homefeed_page.dart';
 import 'package:pixaland/core/modules/splashscreen/splashscreen_page.dart';
+import 'package:pixaland/modules/image_details/view/image_details_page.dart';
 
 extension ObjectExtension on Object? {
   dynamic getValue(String key, dynamic alt) {
@@ -38,6 +39,19 @@ Page underMaintenanceBuilder(BuildContext context, GoRouterState state) {
     key: state.pageKey,
     child: Container(),
     transitionDuration: const Duration(milliseconds: 100),
+    transitionsBuilder: (_, a, __, c) => FadeTransition(opacity: a, child: c),
+  );
+}
+
+Page imageDetailsBuilder(BuildContext context, GoRouterState state) {
+  final id = int.tryParse(state.params.getValue('id', '0'));
+  final imageUrl = state.extra.getValue('imageUrl', '');
+  return CustomTransitionPage(
+    key: state.pageKey,
+    child: ImageDetailsPage(
+      imageId: id!,
+      imageUrl: imageUrl,
+    ),
     transitionsBuilder: (_, a, __, c) => FadeTransition(opacity: a, child: c),
   );
 }

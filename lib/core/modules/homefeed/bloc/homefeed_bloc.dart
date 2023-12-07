@@ -31,7 +31,7 @@ class HomeFeedBloc extends Bloc<HomeFeedEvent, HomeFeedState> {
     try {
       final images = await repository.getAllImageList();
       emit(state.copyWith(
-        images: images,
+        images: images.reversed.toList(),
         status: BaseStatusEnum.success,
       ));
     } catch (e) {

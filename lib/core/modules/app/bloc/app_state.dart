@@ -32,7 +32,6 @@ class AppState extends Equatable {
     LanguageEnum? language,
     BaseStatusEnum? status,
     AppThemeOptions? themeOptions,
-    bool? devOptionEnabled,
     bool? isLoading,
     AppHealthEnum? health,
     InternetStatusEnum? internetStatus,
