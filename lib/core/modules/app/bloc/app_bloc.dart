@@ -60,7 +60,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
         themeOptions: themeOptions,
       ));
       // Add some delay to wait for auth state finishing updated
-      await Future.delayed(const Duration(milliseconds: 500));
+      await Future.delayed(const Duration(milliseconds: 800));
       emit(state.copyWith(status: BaseStatusEnum.success));
     } catch (e) {
       // ==================

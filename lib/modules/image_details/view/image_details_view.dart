@@ -82,7 +82,12 @@ class _ContentView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const SizedBox(),
+                  IconButton(
+                    onPressed: () {
+                      // do something!
+                    },
+                    icon: const Icon(Icons.maps_ugc),
+                  ),
                   const Row(
                     children: [
                       _ViewButton(),
@@ -139,7 +144,7 @@ class _UserProfileInfo extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextWidget('Pixaland', size: 16),
-            CaptionWidget('500K Followes'),
+            CaptionWidget('500K Followers'),
           ],
         )
       ],

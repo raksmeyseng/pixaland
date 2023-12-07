@@ -187,18 +187,27 @@ void showSnackBar(
   String message, {
   Color? color,
   bool permanant = false,
+  IconData? icon,
 }) {
   ScaffoldMessenger.of(context)
     ..clearSnackBars()
     ..showSnackBar(
       SnackBar(
         backgroundColor: color ?? AppColor.info,
-        content: TextWidget(
-          message,
-          color: Colors.white,
-          maxLines: 1,
-          softWrap: false,
-          overflow: TextOverflow.fade,
+        content: Row(
+          children: [
+            if (icon != null) ...[
+              Icon(icon),
+              const SizedBox(width: 10),
+            ],
+            TextWidget(
+              message,
+              color: Colors.white,
+              maxLines: 1,
+              softWrap: false,
+              overflow: TextOverflow.fade,
+            ),
+          ],
         ),
         duration:
             permanant ? const Duration(days: 100) : const Duration(seconds: 4),

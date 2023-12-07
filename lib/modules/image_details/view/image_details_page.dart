@@ -55,7 +55,7 @@ class ImageDetailsPage extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 8.0, top: 8.0),
                   child: SafeArea(
                     child: CircleAvatar(
-                      radius: 30,
+                      radius: 28,
                       backgroundColor: AppColor.black.withOpacity(0.4),
                       child: IconButton(
                         icon: const Icon(Icons.arrow_back),

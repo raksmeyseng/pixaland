@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:pixaland/config/routes/application.dart';
 import 'package:pixaland/config/themes/app_color.dart';
 import 'package:pixaland/core/enum/internet_status_enum.dart';
@@ -20,6 +21,9 @@ class RestApiService {
       InterceptorsWrapper(
         onRequest: (options, handler) async {
           final online = await NetworkHelper.isNetworkConnected();
+          if (online) {
+            ScaffoldMessenger.of(Application.context!).hideCurrentSnackBar();
+          }
           if (!online && options.extra['showOfflineDialog'] != false) {
             final error = DioError(
               requestOptions: options,
@@ -56,22 +60,9 @@ class RestApiService {
                 Application.context!,
                 S.of(Application.context!).msg_check_your_internet_connection,
                 color: AppColor.success,
-                permanant: !_errorDialogShowed,
+                permanant: true,
+                icon: Icons.wifi_off_outlined,
               );
-              // _errorDialogShowed = true;
-              // DialogHelper.showAnimatedDialog(
-              //   pageBuilder: (context, _, __) {
-              //     return AlertMessageDialog(
-              //       icon: const Icon(
-              //         Icons.wifi_off_outlined,
-              //         size: 70,
-              //         color: AppColor.white,
-              //       ),
-              //       title: S.of(context).title_no_internet_access,
-              //       message: S.of(context).msg_check_your_internet_connection,
-              //     );
-              //   },
-              // ).then((value) => _errorDialogShowed = false);
             }
           }
           return handler.next(e);
