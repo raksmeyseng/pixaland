@@ -13,7 +13,6 @@ class AppConstant {
 
   static const String defaultFont = 'Siemreap';
   static const List<String> primaryFonts = ['Siemreap'];
-  static const String engFontFamily = 'OpenSans';
 
   // Local storage keys
   /// CAUTION: Change this key value, the app will wipe out all local storage at first run
@@ -24,27 +23,14 @@ class AppConstant {
   static const String theme = 'theme';
   static const String langage = 'language';
   static const String credentials = 'credentials';
-  static const String envSources = 'env-sources';
-  static const String selectedEnvSrcCode = 'selected-env-src-code';
-  static const String activeUserToken = 'active-user-token';
-  static const String userTokens = 'user-tokens';
   static const String themeOptionKey = 'theme-options-key';
   static const String primaryColorKey = 'primary-color-key';
-  static const String developerOptionEnabled = 'developer-option-enabled';
-  static const String selectedLicensee = 'selected-licensee';
-  static const String userSetting = 'user-setting';
-  static const String rememerMe = 'remember-me';
 
   // Default value
   static const LanguageEnum defaultLang = LanguageEnum.khmer;
 
   // OTP
   static const int otpTimeoutSeconds = 120;
-
-  // App Environment
-  // static const String defaultEnvCode = 'Adum7nD1'; // Staging
-  static const String defaultEnvCode = 'y2c6khR0'; // Dev/UAT
-  static const String developerCode = '2023';
 
   // Date format
   static const String defaultDateFormat = 'dd/MM/yyyy';

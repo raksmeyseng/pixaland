@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pixaland/core/modules/homefeed/view/homefeed_page.dart';
+import 'package:pixaland/core/modules/image_details/view/image_details_page.dart';
 import 'package:pixaland/core/modules/splashscreen/splashscreen_page.dart';
-import 'package:pixaland/modules/image_details/view/image_details_page.dart';
 
 extension ObjectExtension on Object? {
   dynamic getValue(String key, dynamic alt) {

@@ -6,7 +6,7 @@ import 'package:pixaland/config/themes/app_color.dart';
 import 'package:pixaland/constants/asset_path.dart';
 import 'package:pixaland/core/animation/my_animated_switcher.dart';
 import 'package:pixaland/core/enum/base_status_enum.dart';
-import 'package:pixaland/modules/image_details/bloc/image_details_bloc.dart';
+import 'package:pixaland/core/modules/image_details/bloc/image_details_bloc.dart';
 import 'package:pixaland/widgets/caption_widget.dart';
 import 'package:pixaland/widgets/flat_card.dart';
 import 'package:pixaland/widgets/load_data_failed.dart';

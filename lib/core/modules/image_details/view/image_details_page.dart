@@ -2,9 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pixaland/config/themes/app_color.dart';
-import 'package:pixaland/modules/image_details/bloc/image_details_bloc.dart';
-import 'package:pixaland/modules/image_details/repositories/image_details_repository.dart';
-import 'package:pixaland/modules/image_details/view/image_details_view.dart';
+import 'package:pixaland/core/modules/image_details/bloc/image_details_bloc.dart';
+import 'package:pixaland/core/modules/image_details/repositories/image_details_repository.dart';
+import 'package:pixaland/core/modules/image_details/view/image_details_view.dart';
 
 class ImageDetailsPage extends StatelessWidget {
   const ImageDetailsPage({

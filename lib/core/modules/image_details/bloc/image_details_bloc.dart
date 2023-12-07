@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pixaland/core/enum/base_status_enum.dart';
 import 'package:pixaland/core/modules/homefeed/models/image_model.dart';
-import 'package:pixaland/modules/image_details/repositories/image_details_repository.dart';
+import 'package:pixaland/core/modules/image_details/repositories/image_details_repository.dart';
 
 part 'image_details_event.dart';
 part 'image_details_state.dart';

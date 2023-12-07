@@ -39,17 +39,6 @@ class AppRepository {
     return lang;
   }
 
-  Future<void> saveSelectedEnvCode(String code) {
-    return LocalStorageService.instance
-        .saveString(AppConstant.selectedEnvSrcCode, code);
-  }
-
-  Future<String> getSelectedEnvSrcCode() async {
-    final code = await LocalStorageService.instance
-        .getString(AppConstant.selectedEnvSrcCode);
-    return code ?? AppConstant.defaultEnvCode;
-  }
-
   Future<bool> saveThemeOptions(AppThemeOptions options) async {
     return LocalStorageService.instance.saveString(
       AppConstant.themeOptionKey,
@@ -62,18 +51,5 @@ class AppRepository {
         .getString(AppConstant.themeOptionKey);
     if (options == null) return null;
     return AppThemeOptions.fromJson(jsonDecode(options));
-  }
-
-  Future<void> saveDeveloperOptionEnabled(bool enabled) async {
-    await LocalStorageService.instance.saveString(
-      AppConstant.developerOptionEnabled,
-      enabled.toString(),
-    );
-  }
-
-  Future<bool> getDeveloperOptionEnabled() async {
-    final res = await LocalStorageService.instance
-        .getString(AppConstant.developerOptionEnabled);
-    return res?.toLowerCase() == 'true';
   }
 }
