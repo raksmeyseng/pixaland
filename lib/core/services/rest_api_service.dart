@@ -39,7 +39,7 @@ class RestApiService {
               appBloc.state.language.getLocale().languageCode;
           return handler.next(options);
         },
-        onError: (DioError e, handler) async {
+        onError: (DioError e, handler) async { 
           // Clear loading
           await LoadingHelper.close();
           // Handle error message

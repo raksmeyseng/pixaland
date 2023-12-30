@@ -36,8 +36,8 @@ class ImageDetailsPage extends StatelessWidget {
                         tag: imageId.toString(),
                         child: ClipRRect(
                           borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(40),
-                            topRight: Radius.circular(40),
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20),
                           ),
                           child: CachedNetworkImage(
                             imageUrl: imageUrl,

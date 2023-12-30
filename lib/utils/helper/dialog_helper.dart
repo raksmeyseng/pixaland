@@ -39,8 +39,8 @@ class DialogHelper {
       barrierDismissible: barrierDismissible,
       barrierLabel: barrierLabel,
       pageBuilder: (context, animation, secondaryAnimation) {
-        return WillPopScope(
-          onWillPop: () => Future.value(barrierDismissible),
+        return PopScope(
+          onPopInvoked: (val) => Future.value(barrierDismissible),
           child: pageBuilder(context, animation, secondaryAnimation),
         );
       },

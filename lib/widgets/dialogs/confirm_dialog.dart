@@ -31,8 +31,8 @@ class ConfirmDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const borderRadius = 16.0;
-    return WillPopScope(
-      onWillPop: () => Future.value(false),
+    return PopScope(
+      onPopInvoked: (val) => Future.value(false),
       child: Dialog(
         insetPadding: const EdgeInsets.all(24.0),
         shape: RoundedRectangleBorder(
